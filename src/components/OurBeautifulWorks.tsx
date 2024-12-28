@@ -18,7 +18,7 @@ const OurBeautifulWorks: React.FC = () => {
                     <h2 className="text-blacks font-bold text-2xl xl:text-4xl">
                       Our Beautiful Works
                     </h2>
-                    <p className="text-blacks text-opacity-80 font-normal md:w-[400px]">
+                    <p className="text-blacks text-opacity-80 font-normal md:w-[550px]">
                       Explore a selection of our beautiful and impactful
                       projects. We pride ourselves on delivering top-quality
                       results, whether it's a small task or a complex solution.
