@@ -19,13 +19,12 @@ const OurBeautifulWorks: React.FC = () => {
                       Our Beautiful Works
                     </h2>
                     <p className="text-blacks text-opacity-80 font-normal md:w-[400px]">
-                      We help our clients grow their bottom-line with clear and
-                      professional websites.
+                      Explore a selection of our beautiful and impactful
+                      projects. We pride ourselves on delivering top-quality
+                      results, whether it's a small task or a complex solution.
+                      Every project is approached with the same level of
+                      professionalism and care to help our clients succeed.
                     </p>
-
-                    <button className="bg-white text-blacks border-2 border-blacks px-4 py-3 rounded-xl xl:px-8">
-                      Load More
-                    </button>
                   </div>
                 </motion.div>
 
