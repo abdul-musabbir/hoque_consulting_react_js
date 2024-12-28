@@ -100,9 +100,11 @@ export default function ClearSimplePricing() {
                   <h2 className="font-semibold text-white text-2xl xl:text-4xl xl:w-[400px]">
                     Simple pricing to level up your brand.
                   </h2>
-                  <p className="text-white text-opacity-80 xl:w-[420px] xl:text-lg">
-                    Senior experts. On-demand requests. Fast turnarounds. Flat
-                    monthly fee. Cancel anytime.
+                  <p className="text-white text-opacity-80 xl:w-[650px] xl:text-lg">
+                    Choose a plan that aligns with your goals. From startups to
+                    enterprises, our pricing is tailored to deliver value and
+                    help your business thrive. Let’s empower your growth with
+                    scalable, impactful solutions designed just for you.
                   </p>
                 </div>
               </div>

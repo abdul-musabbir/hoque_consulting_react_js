@@ -15,20 +15,16 @@ export default function Testimonial() {
                   <h2 className="text-blacks text-2xl lg:text-5xl lg:w-[400px] font-extrabold">
                     Customer is Our Top Priority
                   </h2>
-                  <p className="text-blacks">
-                    We survey all of our clients, the results of which go
-                    directly to our CEO.
+                  <p className="text-blacks md:w-[550px]">
+                    We’re committed to delivering top-notch solutions that drive
+                    results. Don’t just take our word for it—hear from the
+                    businesses we've helped grow.
                   </p>
-
-                  <h2>
-                    Ideapeel is the best digital agency i have ever seen! Highly
-                    Recommended!
-                  </h2>
                 </div>
               </div>
             </div>
 
-            <div className="w-full">
+            <div className="w-full mt-10">
               <div className="w-full">
                 <div className="w-full">
                   <TestimonialSlider />
