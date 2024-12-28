@@ -1,7 +1,22 @@
-import L from "../../assets/logos/l.svg";
-
+import Allianz from "../../assets/brands/allianz.svg";
+import Aon from "../../assets/brands/aon.svg";
+import Bulklcdparts from "../../assets/brands/bulklcdparts.svg";
+import FedaralBank from "../../assets/brands/fedaral_bank.svg";
+import LearnFxTrading from "../../assets/brands/learnfxtrading.svg";
+import MasterCook from "../../assets/brands/mastercook.svg";
+import Shopnbc from "../../assets/brands/shopnbc.svg";
+import UnitedHealthCare from "../../assets/brands/united-health-care.svg";
 export default function LogoSlider() {
-  const logos: string[] = [L, L, L, L, L, L, L];
+  const logos: string[] = [
+    Allianz,
+    Aon,
+    Bulklcdparts,
+    FedaralBank,
+    LearnFxTrading,
+    MasterCook,
+    Shopnbc,
+    UnitedHealthCare,
+  ];
 
   return (
     <div className="relative w-full overflow-hidden group slider">

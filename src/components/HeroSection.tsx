@@ -48,21 +48,23 @@ export default function HeroSection() {
                     </p>
                   </motion.div>
 
-                  <div className="flex gap-4 relative">
-                    <div className="absolute -right-80 bottom-3">
+                  <div className="flex gap-4 flex-col relative">
+                    <div className="order-2">
                       <img
                         className="w-60 opacity-80"
                         src={MicrosoftPatnerLogo}
                         alt=""
                       />
                     </div>
-                    <button className="bg-greens text-blacks px-4 py-3 rounded-xl font-medium">
-                      Book A Meeting
-                    </button>
+                    <div className="flex gap-4 order-1">
+                      <button className="bg-greens text-blacks px-4 py-3 rounded-xl font-medium">
+                        Book A Meeting
+                      </button>
 
-                    <button className="bg-blacks border border-[#B9FD50] text-white px-4 py-3 rounded-xl font-medium">
-                      Get a Quote
-                    </button>
+                      <button className="bg-blacks border border-[#B9FD50] text-white px-4 py-3 rounded-xl font-medium">
+                        Get a Quote
+                      </button>
+                    </div>
                   </div>
                 </div>
 
