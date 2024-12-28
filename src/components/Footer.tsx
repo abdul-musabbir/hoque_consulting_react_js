@@ -11,18 +11,24 @@ export default function Footer() {
                 <div className="py-8 relative bg-[#1E2008] -top-32 left-0 right-0 rounded-xl xl:py-14">
                   <div className="flex flex-col items-center text-center px-5 gap-5">
                     <h2 className="font-extrabold text-2xl sm:text-3xl text-center xl:text-5xl w-[500px]">
-                      Become part of the <br />
-                      design revolution
+                      Have a Project
+                      <br />
+                      in Mind?
                     </h2>
 
-                    <p className="text-white text-opacity-80 sm:w-[300px]">
-                      Jump on a membership and start requesting designs right
-                      away!
+                    <p className="text-white text-opacity-80 sm:w-[300px] md:w-[550px]">
+                      Ready to bring your vision to life? Join us today and
+                      start requesting high-quality designs right away! Our team
+                      is here to turn your ideas into powerful, impactful
+                      solutions.
                     </p>
 
-                    <div>
+                    <div className="space-x-4 flex flex-col sm:flex-row items-center justify-center">
                       <button className="bg-greens px-6 py-2.5 rounded-xl text-blacks font-medium">
-                        See Pricing
+                        Book A Meeting
+                      </button>
+                      <button className="border border-greens px-6 py-2.5 rounded-xl text-white font-medium">
+                        Get a Quote
                       </button>
                     </div>
                   </div>
@@ -39,9 +45,8 @@ export default function Footer() {
                           <span className="text-greenss">Consulting&reg;</span>
                         </h2>
                         <p className="text-white text-opacity-80 w-[400px]">
-                          Hoque Consulting - the leading digital agency based in
-                          the US, working with top-tier clients, from start-ups
-                          to enterprises.
+                          Empowering your business with innovative,
+                          cost-effective digital solutions.
                         </p>
                       </div>
 
