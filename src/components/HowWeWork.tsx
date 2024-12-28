@@ -52,7 +52,7 @@ const HowWeWork: React.FC = () => {
                             delivering results that exceed expectations.
                           </p>
                           <button className="bg-greens text-blacks font-medium px-6 py-2 rounded-xl cursor-pointer">
-                            See Pricing
+                            Get A Quote
                           </button>
                         </div>
                       </motion.div>
