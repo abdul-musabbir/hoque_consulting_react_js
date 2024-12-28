@@ -42,14 +42,14 @@ export default function Header() {
         <div className="flex w-full items-center justify-between">
           {/* Logo Section */}
           <div className="leading-3">
-            <a href="#" className="select-none">
+            <NavLink to={"/"} className="select-none">
               <h2 className="text-2xl font-bold xl:text-3xl text-white">
                 Hoque <span className="text-greens">Consulting&reg;</span>
               </h2>
               <span className="text-white text-opacity-80">
                 Solution provider
               </span>
-            </a>
+            </NavLink>
           </div>
 
           {/* Mobile Menu Button */}
