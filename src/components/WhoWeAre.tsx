@@ -55,7 +55,7 @@ export default function WhoWeAre() {
                           href="#"
                           className="bg-greens text-blacks px-6 py-3 rounded-xl lg:text-lg"
                         >
-                          Get more traffic
+                          Get a Quote
                         </a>
                       </p>
                     </div>

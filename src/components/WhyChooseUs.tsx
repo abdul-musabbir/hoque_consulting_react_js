@@ -39,48 +39,45 @@ const WhyChooseUs: React.FC = () => {
 
                     <div className="text-white space-y-5">
                       <p className="text-xl font-semibold">
-                        Your Growth is Our Priority
+                        Empowering Your Success, Together
                       </p>
 
                       <p className="text-base">
-                        Choosing <strong>Hoque Consulting</strong> means
-                        partnering with a team that’s dedicated to your success.
+                        Choosing <strong>Hoque Consulting</strong> means gaining
+                        a partner committed to driving your growth with
+                        innovative strategies and unmatched expertise.
                       </p>
 
                       <div className="space-y-3 py-4">
                         <p className="text-base">
-                          <strong>Innovative Solutions:</strong> means
-                          partnering with a team that’s dedicated to your
-                          success.
+                          <strong>Innovative Solutions:</strong> Cutting-edge
+                          strategies that deliver results.
                         </p>
                         <p className="text-base">
                           <strong>Client-Centric Approach:</strong> Your goals
-                          are our priority, and we tailor solutions to meet
-                          them.
+                          are our focus, driving personalized solutions.
                         </p>
 
                         <p className="text-base">
-                          <strong>Proven Expertise:</strong>A track record of
-                          driving results for businesses across diverse
-                          industries.
+                          <strong>Proven Expertise:</strong> A trusted history
+                          of success across industries.
                         </p>
 
                         <p className="text-base">
-                          <strong>Transparent Collaboration: </strong> means
-                          partnering with a team that’s dedicated to your
-                          success.
+                          <strong>Transparent Collaboration: </strong> Clear
+                          communication to keep you involved every step.
                         </p>
 
                         <p className="text-base">
-                          Don’t just take our word for it—experience the
-                          difference for yourself.
+                          Experience the difference with a partner dedicated to
+                          your success.
                         </p>
                         <p className="pt-4">
                           <NavLink
                             to={"/"}
                             className="bg-greens text-blacks px-6 py-3 rounded-xl lg:text-lg"
                           >
-                            Get more traffic
+                            Get a Quote
                           </NavLink>
                         </p>
                       </div>

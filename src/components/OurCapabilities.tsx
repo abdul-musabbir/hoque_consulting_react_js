@@ -74,7 +74,7 @@ export default function OurCapabilities() {
                     Our capabilities
                   </h3>
                   <h2 className="font-semibold text-white text-2xl xl:text-4xl">
-                    We can help you with..
+                    We can help you with...
                   </h2>
                 </div>
               </div>
@@ -119,10 +119,12 @@ export default function OurCapabilities() {
                       online landscape. Our expertise spans across web
                       development, app creation, graphic design, video editing,
                       digital marketing, and SEO—ensuring every aspect of your
-                      digital presence is optimized for success.
+                      digital presence is optimized for success. With a focus on
+                      strategy, creativity, and measurable results, we empower
+                      your brand to stand out and grow.
                     </p>
-                    <button className="bg-greens text-blacks font-medium px-6 py-2 rounded-xl cursor-pointer">
-                      See Pricing
+                    <button className="border-greens border text-white font-medium px-6 py-2 rounded-xl cursor-pointer">
+                      Get a Quote
                     </button>
                   </div>
                 </div>
