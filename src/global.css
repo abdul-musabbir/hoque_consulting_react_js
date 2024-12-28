@@ -12,8 +12,9 @@
 html {
   scroll-behavior: smooth;
 }
+
 body {
-  background-color: var(--secondary-color);
+  background-color: #111204;
   color: var(--global-text-color);
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
@@ -157,6 +158,46 @@ body {
   }
 }
 
-.svgs {
-  fill: #b9fd50;
+/* swiper slider */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* swiper slider navigatioin style
+ */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: flex !important;
+  background-color: var(--primary-color);
+}
+
+:is(.swiper-button-next, .swiper-button-prev)::after {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--secondary-color);
+}
+
+.swiper-pagination-bullet {
+  --primary-color-opacity: #3f6407;
+  background: var(--primary-color-opacity);
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary-color);
 }

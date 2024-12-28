@@ -1,27 +1,47 @@
+import { slideInFromLeft } from "@/utils/motion";
+import { fadeIn } from "@/utils/variants";
+import { motion } from "framer-motion";
 import Arrow from "../assets/logos/arrow.svg";
 const HowWeWork: React.FC = () => {
   return (
-    <div className="py-24">
+    <motion.div className="py-24">
       <div>
         <div className="flex mx-auto w-11/12 md:w-[720px] lg:w-[1000px] xl:w-[1200px]">
           <div>
             <div className="space-y-10 xl:space-y-20">
-              <div>
+              <motion.div>
                 <div>
-                  <div>
+                  <motion.div
+                    variants={slideInFromLeft(0.3)}
+                    initial="hidden"
+                    whileInView={"visible"}
+                    viewport={{ once: false, amount: 0.2 }}
+                  >
                     <h3 className="text-greenss text-md uppercase">
                       how we work
                     </h3>
-                  </div>
+                  </motion.div>
                   <div>
                     <div className="flex flex-col gap-4 xl:grid grid-cols-2 xl:gap-10">
-                      <div className="pr-20">
+                      <motion.div
+                        variants={fadeIn("right", 0.3)}
+                        initial="hidden"
+                        whileInView={"visible"}
+                        viewport={{ once: false, amount: 0.2 }}
+                        className="pr-20"
+                      >
                         <h2 className="text-4xl font-semibold">
                           Get a dedicated design team at fraction of the cost.
                         </h2>
-                      </div>
+                      </motion.div>
 
-                      <div className="">
+                      <motion.div
+                        variants={fadeIn("left", 0.3)}
+                        initial="hidden"
+                        whileInView={"visible"}
+                        viewport={{ once: false, amount: 0.2 }}
+                        className=""
+                      >
                         <div className="space-y-4">
                           <p className="text-white text-opacity-80 font-light xl:text-xl">
                             At Hoque Consulting, we focus on quality and
@@ -35,13 +55,18 @@ const HowWeWork: React.FC = () => {
                             See Pricing
                           </button>
                         </div>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div
+                variants={fadeIn("up", 0.5)}
+                initial="hidden"
+                whileInView={"visible"}
+                viewport={{ once: false, amount: 0.2 }}
+              >
                 <div className="flex flex-col gap-10 md:grid md:grid-cols-2 xl:grid xl:grid-cols-3 xl:gap-20">
                   <div className="flex flex-col">
                     <div className="flex items-center">
@@ -122,12 +147,12 @@ const HowWeWork: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -4,7 +4,7 @@ import Flim from "../assets/icons/film.svg";
 import Megaphone from "../assets/icons/megaphone.svg";
 import PencilPaintbrush from "../assets/icons/pencil-paintbrush.svg";
 import SquareCode from "../assets/icons/square-code.svg";
-import cn from "../utils/cn";
+import { cn } from "../lib/utils";
 
 interface Service {
   title?: string;

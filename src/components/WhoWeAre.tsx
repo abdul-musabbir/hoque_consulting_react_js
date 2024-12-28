@@ -1,3 +1,6 @@
+import { fadeIn } from "@/utils/variants";
+import { motion } from "framer-motion";
+import WhoWePhoto from "../assets/icons/whoweare.jpg";
 export default function WhoWeAre() {
   return (
     <div className="py-24 bg-white">
@@ -6,17 +9,24 @@ export default function WhoWeAre() {
           <div className="w-full">
             <div className="w-full">
               <div className="flex flex-col gap-16 md:grid md:grid-cols-2 md:gap-5 lg:gap-24">
-                <div>
+                <motion.div
+                  variants={fadeIn("right", 0.3)}
+                  initial="hidden"
+                  whileInView={"visible"}
+                  viewport={{ once: false, amount: 0.2 }}
+                >
                   <div>
-                    <img
-                      className="rounded-xl"
-                      src="https://hoqueconsulting.com/wp-content/themes/hoque-consulting/assets/images/01.jpg"
-                      alt=""
-                    />
+                    <img className="rounded-xl" src={WhoWePhoto} alt="" />
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="lg:py-10 md:flex md:items-center md:justify-center">
+                <motion.div
+                  variants={fadeIn("left", 0.3)}
+                  initial="hidden"
+                  whileInView={"visible"}
+                  viewport={{ once: false, amount: 0.2 }}
+                  className="lg:py-10 md:flex md:items-center md:justify-center"
+                >
                   <div className="space-y-5 lg:space-y-10">
                     <div>
                       <h2 className="text-3xl lg:text-4xl text-blacks font-bold">
@@ -50,7 +60,7 @@ export default function WhoWeAre() {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>

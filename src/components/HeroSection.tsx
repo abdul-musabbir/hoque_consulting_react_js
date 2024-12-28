@@ -1,9 +1,11 @@
+import { slideInFromLeft, slideInFromRight } from "@/utils/motion";
+import { motion } from "framer-motion";
 import MicrosoftPatnerLogo from "../assets/logos/microsoft-partner-logo.svg";
 import Star from "../assets/logos/star.svg";
 import LogoSlider from "./slider/LogoSlider";
 export default function HeroSection() {
   return (
-    <div className="min-h-screen flex items-center justify-center relative">
+    <motion.div className="min-h-screen flex items-center justify-center relative">
       <div className="w-full h-full flex items-center justify-center">
         <div className="absolute top-24 right-14">
           <img className="w-28 opacity-25" src={Star} alt="" />
@@ -13,8 +15,13 @@ export default function HeroSection() {
           <div className="w-full h-full flex items-center justify-center">
             <div className="lg:mt-28">
               <div className="flex flex-col gap-16 lg:gap-20">
-                <div className="flex flex-col items-center gap-8 lg:gap-12">
-                  <div className="text-center relative flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center gap-8 lg:gap-12 relative">
+                  <motion.div
+                    variants={slideInFromLeft(0.5)}
+                    initial="hidden"
+                    animate="visible"
+                    className="text-center relative flex flex-col items-center justify-center"
+                  >
                     <h3 className="text-white font-bold text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] leading-relaxed">
                       Simplify Technology,
                     </h3>
@@ -24,9 +31,13 @@ export default function HeroSection() {
                     </h3>
 
                     <div className="absolute size-28 lg:size-60 lg:blur-[8rem] bg-greens blur-3xl -z-10"></div>
-                  </div>
+                  </motion.div>
 
-                  <div>
+                  <motion.div
+                    variants={slideInFromRight(0.5)}
+                    initial="hidden"
+                    animate="visible"
+                  >
                     <p className="text-white text-opacity-80 text-center font-normal xl:px-56 lg:px-44 xl:text-lg">
                       Hoque Consulting LLC is a Minnesota based premiere
                       consulting firm that provides cost effective solutions
@@ -35,10 +46,10 @@ export default function HeroSection() {
                       top quality service. Please Contact Us for a specific
                       quote or with any questions.
                     </p>
-                  </div>
+                  </motion.div>
 
                   <div className="flex gap-4 relative">
-                    <div className="absolute">
+                    <div className="absolute -right-80 bottom-3">
                       <img
                         className="w-60 opacity-80"
                         src={MicrosoftPatnerLogo}
@@ -77,6 +88,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

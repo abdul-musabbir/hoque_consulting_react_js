@@ -1,14 +1,27 @@
-import { ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import axios from "axios";
+import { ChangeEvent, useState } from "react";
+
+import { useToast } from "@/hooks/use-toast";
+import AccordionDropDown from "./AccordionDropDown";
 
 export default function FAQ() {
-  const [isOpen, setIsOpen] = useState<number | null>(2);
-
-  interface FaqDataType {
-    title: string;
-    des: string;
+  const [loading, setLoading] = useState<boolean>(false);
+  const { toast } = useToast();
+  interface InputData {
+    fullname: string;
+    email: string;
+    subject: string;
+    message: string;
   }
-  const faqData: FaqDataType[] = [
+
+  const [inputData, setInputData] = useState<InputData>({
+    fullname: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const faqData = [
     {
       title: "What services does Hoque Consulting offer?",
       des: "Hoque Consulting provides a wide range of digital solutions to help your business succeed. We specialize in web development, offering high-performance, customized websites; app architecture and development with scalable solutions for both iOS and Android; graphic design to elevate your brand identity; professional video editing for compelling storytelling; comprehensive digital marketing strategies to increase brand engagement; and search engine optimization (SEO) services to enhance your search engine visibility and drive organic traffic.",
@@ -31,8 +44,57 @@ export default function FAQ() {
     },
   ];
 
-  const openDialog = (index: number) => {
-    setIsOpen(index);
+  const inputHandle = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setInputData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (
+      !inputData.fullname ||
+      !inputData.email ||
+      !inputData.subject ||
+      !inputData.message
+    ) {
+      toast({
+        title: "Please fill in all fields.",
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    axios
+      .post(import.meta.env.VITE_HTTP_EMAIL_SEND_URL, inputData)
+      .then((resp) => {
+        if (resp.status === 200 && resp.statusText === "OK") {
+          toast({
+            title: "Email sent successfully.",
+          });
+          setInputData({
+            fullname: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+        } else {
+          alert("Failed to send email.");
+        }
+      })
+
+      .catch((error) => {
+        console.error("Error sending email:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -40,72 +102,63 @@ export default function FAQ() {
       <div>
         <div className="flex mx-auto w-11/12 xl:max-w-2xl">
           <div className="w-full">
-            <div className="w-full">
-              <div className="w-full">
-                <div className="w-full">
-                  <div className="text-center">
-                    <h2 className="uppercase text-blacks font-semibold text-2xl text-center xl:text-4xl">
-                      faq'<span className="lowercase">s</span>
-                    </h2>
-                    <p className="text-black opacity-60 xl:text-lg">
-                      Providing answers to your questions
-                    </p>
-                  </div>
+            <div className="text-center">
+              <h2 className="uppercase text-blacks font-semibold text-2xl xl:text-4xl">
+                faq'<span className="lowercase">s</span>
+              </h2>
+              <p className="text-black opacity-60 xl:text-lg">
+                Providing answers to your questions
+              </p>
+            </div>
+
+            <div className="mt-8">
+              <div className="flex flex-col gap-8">
+                <div id="faq-sections" className="flex flex-col gap-4">
+                  <AccordionDropDown data={faqData} />
                 </div>
-              </div>
 
-              <div className="mt-8">
-                <div>
-                  <div className="flex flex-col gap-8">
-                    <div id="faq-sections" className="flex flex-col gap-4">
-                      {faqData.map((item, index: number) => {
-                        return (
-                          <div
-                            key={index}
-                            className="bg-blacks px-6 overflow-hidden rounded-xl"
-                          >
-                            <button
-                              onClick={() => openDialog(index)}
-                              className="w-full h-20 flex items-center justify-between cursor-pointer"
-                            >
-                              <p className="select-none">{item.title}</p>
-                              <div className="size-8 bg-greens rounded-full text-blacks flex items-center justify-center text-2xl">
-                                {isOpen === index ? (
-                                  <ChevronUp />
-                                ) : (
-                                  <ChevronDown />
-                                )}
-                              </div>
-                            </button>
+                <div className="mt-14">
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <input
+                      onChange={inputHandle}
+                      value={inputData.fullname}
+                      type="text"
+                      name="fullname"
+                      placeholder="Your Name"
+                      className="w-full border rounded-xl p-4 text-blacks outline-none"
+                    />
+                    <input
+                      onChange={inputHandle}
+                      value={inputData.email}
+                      type="email"
+                      name="email"
+                      placeholder="Your Email"
+                      className="w-full border rounded-xl p-4 text-blacks outline-none"
+                    />
+                    <input
+                      onChange={inputHandle}
+                      value={inputData.subject}
+                      type="text"
+                      name="subject"
+                      placeholder="Subject"
+                      className="w-full border rounded-xl p-4 text-blacks outline-none"
+                    />
+                    <textarea
+                      onChange={inputHandle}
+                      value={inputData.message}
+                      name="message"
+                      rows={3}
+                      placeholder="Ask us what you want to know.."
+                      className="w-full border rounded-xl p-4 text-blacks outline-none resize-none"
+                    />
 
-                            {isOpen === index && (
-                              <div className="px-4 pb-4 mt-3">
-                                <p>{item.des}</p>
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    <div>
-                      <form action="" className="flex flex-col gap-4">
-                        <textarea
-                          className="w-full border rounded-xl p-4 text-blacks outline-none"
-                          name=""
-                          rows={5}
-                          id=""
-                          placeholder="Ask us what you want to know.."
-                        ></textarea>
-
-                        <input
-                          type="submit"
-                          value="Send"
-                          className="bg-greens text-blacks px-6 py-2 rounded-xl"
-                        />
-                      </form>
-                    </div>
-                  </div>
+                    <button
+                      type="submit"
+                      className="bg-greens font-bold cursor-pointer text-blacks px-6 py-2 rounded-xl"
+                    >
+                      {loading ? "Sending..." : "Send"}
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>

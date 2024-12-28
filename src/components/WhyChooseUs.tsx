@@ -1,25 +1,35 @@
+import { fadeIn } from "@/utils/variants";
+import { motion } from "framer-motion";
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import WhyChoosePhoto from "../assets/icons/whychooseus.jpg";
 const WhyChooseUs: React.FC = () => {
   return (
-    <div className="py-24">
+    <motion.div className="py-24">
       <div>
         <div className="flex mx-auto w-11/12 md:w-[720px] lg:w-[1000px] xl:w-[1200px]">
           <div className="w-full">
             <div className="w-full">
               <div className="flex flex-col gap-16 md:grid md:grid-cols-2 md:gap-5 lg:gap-24">
-                <div className="order-1 md:order-2 flex items-center justify-center">
+                <motion.div
+                  variants={fadeIn("right", 0.3)}
+                  initial="hidden"
+                  whileInView={"visible"}
+                  viewport={{ once: false, amount: 0.2 }}
+                  className="order-1 md:order-2 flex items-center justify-center"
+                >
                   <div>
-                    <img
-                      className="rounded-xl"
-                      src="https://hoqueconsulting.com/wp-content/themes/hoque-consulting/assets/images/02.jpg"
-                      alt=""
-                    />
+                    <img className="rounded-xl" src={WhyChoosePhoto} alt="" />
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="order-2 md:order-1">
+                <motion.div
+                  variants={fadeIn("left", 0.3)}
+                  initial="hidden"
+                  whileInView={"visible"}
+                  viewport={{ once: false, amount: 0.2 }}
+                  className="order-2 md:order-1"
+                >
                   <div className="space-y-5">
                     <div>
                       <h2 className="text-3xl lg:text-4xl text-white font-bold">
@@ -76,13 +86,13 @@ const WhyChooseUs: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

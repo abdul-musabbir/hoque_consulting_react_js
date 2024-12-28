@@ -1,12 +1,19 @@
+import { slideInFromRight, slideInFromTop } from "@/utils/motion";
+import { motion } from "framer-motion";
 const OurBeautifulWorks: React.FC = () => {
   return (
-    <div className="py-24 bg-white">
+    <motion.div className="py-24 bg-white">
       <div>
         <div className="flex mx-auto w-11/12 md:w-[720px] lg:w-[1000px] xl:w-[1200px]">
           <div className="w-full">
             <div className="w-full">
               <div className="flex flex-col gap-16">
-                <div>
+                <motion.div
+                  variants={slideInFromTop}
+                  initial="hidden"
+                  whileInView={"visible"}
+                  viewport={{ once: false, amount: 0.2 }}
+                >
                   <div className="flex flex-col items-center text-center gap-4">
                     <h2 className="text-blacks font-bold text-2xl xl:text-4xl">
                       Our Beautiful Works
@@ -20,9 +27,14 @@ const OurBeautifulWorks: React.FC = () => {
                       Load More
                     </button>
                   </div>
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div
+                  variants={slideInFromRight(0.3)}
+                  initial="hidden"
+                  whileInView={"visible"}
+                  viewport={{ once: false, amount: 0.2 }}
+                >
                   <div>
                     <div>
                       <div>
@@ -87,13 +99,13 @@ const OurBeautifulWorks: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
