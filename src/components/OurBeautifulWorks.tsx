@@ -1,4 +1,4 @@
-import { slideInFromRight, slideInFromTop } from "@/utils/motion";
+import { slideInFromTop } from "@/utils/motion";
 import { motion } from "framer-motion";
 const OurBeautifulWorks: React.FC = () => {
   return (
@@ -28,12 +28,7 @@ const OurBeautifulWorks: React.FC = () => {
                   </div>
                 </motion.div>
 
-                <motion.div
-                  variants={slideInFromRight(0.3)}
-                  initial="hidden"
-                  whileInView={"visible"}
-                  viewport={{ once: false, amount: 0.2 }}
-                >
+                <div>
                   <div>
                     <div>
                       <div>
@@ -98,7 +93,7 @@ const OurBeautifulWorks: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
