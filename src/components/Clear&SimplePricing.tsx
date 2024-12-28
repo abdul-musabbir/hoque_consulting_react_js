@@ -1,5 +1,91 @@
-import Star from "../assets/logos/star.svg";
+import { cn } from "@/lib/utils";
+import { Check, X } from "lucide-react";
 export default function ClearSimplePricing() {
+  interface PriceDataProps {
+    pricingTitle: string;
+    pricingSubtitle: string;
+    pricingPrice: string;
+    pricingDescription: string;
+    pricingSubDescription: string;
+    pricingFeatures: string[];
+  }
+  const pricingData: PriceDataProps[] = [
+    {
+      pricingTitle: "Basic",
+      pricingSubtitle: "Most Popular",
+      pricingPrice: "$899.00",
+      pricingDescription:
+        "Perfect for small businesses or professionals to establish a strong online presence.",
+      pricingSubDescription: "Pause or cancel anytime",
+
+      pricingFeatures: [
+        "4 Pages Responsive Design",
+        "1 year Free .com Domain",
+        "1 Months Free Hosting",
+        "1 Months Free Maintenance",
+        "1 Months Free Marketing tool",
+        "Speed Optimization",
+        "Search Console Setup",
+        "SEO-Friendly Content",
+        "E-commerce Intergration",
+        "Payment Integration",
+        "Social Media Wall Integration",
+        "Live Chat",
+        "Booking Setup",
+      ],
+    },
+
+    {
+      pricingTitle: "Advance",
+      pricingSubtitle: "Best value",
+      pricingPrice: "$1,299.00",
+      pricingDescription:
+        "Designed for businesses ready to enhance their online impact with advanced features.",
+      pricingSubDescription: "Pause or cancel anytime",
+
+      pricingFeatures: [
+        "7 Pages Responsive Design",
+        "1 year Free .com Domain",
+        "3 Months Free Hosting",
+        "3 Months Free Maintenance",
+        "1 Month Free Marketing tool",
+        "Speed Optimization",
+        "Search Console Setup",
+        "SEO-Friendly Content",
+        "E-commerce Integration",
+        "Payment Integration",
+        "Social Media Wall Integration",
+        "Live Chat",
+        "Booking Setup",
+      ],
+    },
+
+    {
+      pricingTitle: "Premium",
+      pricingSubtitle: "Weekly",
+      pricingPrice: "$1,599.00",
+      pricingDescription:
+        "For businesses ready to scale, with custom design, e-commerce, and premium support",
+      pricingSubDescription: "Pause or cancel anytime",
+
+      pricingFeatures: [
+        "10 Pages Responsive Design",
+        "1 year Free .com Domain",
+        "3 Months Free Hosting",
+        "3 Months Free Maintenance",
+        "1 Months Free Marketing tool",
+        "Advanced Speed Optimization",
+        "Search Console Setup",
+        "SEO-Friendly Content",
+        "E-commerce Intergration",
+        "Payment Integration",
+        "Social Media Wall Integration",
+        "Live Chat",
+        "Booking Setup",
+      ],
+    },
+  ];
+
   return (
     <div className="py-24 xl:py-40">
       <div>
@@ -26,270 +112,117 @@ export default function ClearSimplePricing() {
               <div>
                 <div>
                   <div className="sm:grid md:grid-cols-2 xl:grid-cols-3 xl:gap-5 flex flex-col gap-5">
-                    <div>
-                      <div className="bg-[#222222] rounded-2xl border border-[#b8fd5047] hover:shadow-greens hover:shadow-2xl">
-                        <div className="p-8">
-                          <div>
-                            <div className="space-y-5 border-b border-[#5654548e] pb-6">
-                              <div className="flex items-center gap-3">
-                                <div>
-                                  <h2 className="font-semibold text-2xl xl:text-3xl">
-                                    Standard
-                                  </h2>
-                                </div>
-                                <div>
-                                  <span className="bg-greens text-blacks px-6 py-2 rounded-xl">
-                                    Most Popular
-                                  </span>
-                                </div>
-                              </div>
-
-                              <div>
-                                <p className="text-white text-opacity-80 text-xs xl:text-base">
-                                  One request at a time. For companies who need
-                                  on-going design support.
-                                </p>
-                              </div>
-                            </div>
-
-                            <div className="py-6 border-b border-[#5654548e]">
-                              <div>
-                                <div>
-                                  <h2 className="text-4xl font-bold text-greenss">
-                                    $2,995/m
-                                  </h2>
-                                  <p className="text-white text-opacity-80 text-xsxl:text-base">
-                                    Pause or cancel anytime
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="pt-6">
-                              <div className="flex flex-col gap-8">
-                                <div className="">
+                    {pricingData.map((singPriceing, index: number) => (
+                      <div key={index}>
+                        <div
+                          className={cn("bg-[#222222] rounded-2xl ", {
+                            " border-[#b8fd50df] border-2": index === 1,
+                          })}
+                        >
+                          <div className="p-8">
+                            <div>
+                              <div className="space-y-5 border-b border-[#5654548e] pb-6">
+                                <div className="flex items-center gap-3">
                                   <div>
-                                    <ul className="flex flex-col gap-4 xl:gap-3">
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        1x active task t a time
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Unlimited revisions
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Dedicated project manager
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Daily comms through Slack
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Work with senior
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        2-3 days turn around time
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Top tier design
-                                      </li>
-                                    </ul>
+                                    <h2 className="font-semibold text-2xl xl:text-3xl">
+                                      {singPriceing?.pricingTitle}
+                                    </h2>
+                                  </div>
+                                  <div>
+                                    <span className="bg-white text-blacks px-6 py-2 rounded-xl">
+                                      {singPriceing?.pricingSubtitle}
+                                    </span>
                                   </div>
                                 </div>
 
                                 <div>
-                                  <div className="flex flex-col gap-4">
-                                    <button className="border border-[#b8fd50d7] py-3 rounded-xl">
-                                      Book A Call
-                                    </button>
-                                    <button className="bg-greens py-3 rounded-xl text-blacks font-medium">
-                                      Click to buy
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="bg-[#222222] rounded-2xl border-2 border-[#b8fd50df]">
-                        <div className="p-8">
-                          <div>
-                            <div className="space-y-5 border-b border-[#5654548e] pb-6">
-                              <div className="flex items-center gap-3">
-                                <div>
-                                  <h2 className="font-semibold text-2xl xl:text-3xl">
-                                    Growth
-                                  </h2>
-                                </div>
-                                <div>
-                                  <span className="bg-white text-blacks px-6 py-2 rounded-xl">
-                                    Best value
-                                  </span>
-                                </div>
-                              </div>
-
-                              <div>
-                                <p className="text-white text-opacity-80 text-xs xl:text-base">
-                                  Double the requests. For companies with
-                                  increasing design needs. Limited spots.
-                                </p>
-                              </div>
-                            </div>
-
-                            <div className="py-6 border-b border-[#5654548e]">
-                              <div>
-                                <div>
-                                  <h2 className="text-4xl font-bold text-greenss">
-                                    $4,795/m
-                                  </h2>
                                   <p className="text-white text-opacity-80 text-xs xl:text-base">
-                                    Pause or cancel anytime
+                                    {singPriceing?.pricingDescription}
                                   </p>
                                 </div>
                               </div>
-                            </div>
 
-                            <div className="pt-6">
-                              <div className="flex flex-col gap-8">
-                                <div className="">
+                              <div className="py-6 border-b border-[#5654548e]">
+                                <div>
                                   <div>
-                                    <ul className="flex flex-col gap-4 xl:gap-3">
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        <span className="text-greenss">
-                                          2x active task
-                                        </span>
-                                        at a time
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Unlimited revisions
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Dedicated project manager
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Daily comms through Slack
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Work with senior
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        2-3 days turn around time
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Top tier design
-                                      </li>
-                                    </ul>
+                                    <h2 className="text-4xl font-bold text-greenss">
+                                      {singPriceing?.pricingPrice}
+                                    </h2>
+                                    <p className="text-white text-opacity-80 text-xs xl:text-base">
+                                      {singPriceing?.pricingSubDescription}
+                                    </p>
                                   </div>
                                 </div>
+                              </div>
 
-                                <div>
-                                  <div className="flex flex-col gap-4">
-                                    <button className="border border-[#b8fd50d7] py-3 rounded-xl">
-                                      Book A Call
-                                    </button>
-                                    <button className="bg-greens py-3 rounded-xl text-blacks font-medium">
-                                      Click to buy
-                                    </button>
+                              <div className="pt-6">
+                                <div className="flex flex-col gap-8">
+                                  <div className="">
+                                    <div>
+                                      <ul className="flex flex-col gap-4 xl:gap-3">
+                                        {singPriceing?.pricingFeatures?.map(
+                                          (singFeature, indexs: number) => (
+                                            <li
+                                              key={indexs}
+                                              className="flex gap-4 text-lg items-center"
+                                            >
+                                              <span>
+                                                {index === 0 ? (
+                                                  [0, 1, 2, 3, 5, 6].includes(
+                                                    indexs
+                                                  ) ? (
+                                                    <Check
+                                                      className="text-greens w-6"
+                                                      strokeWidth={3}
+                                                    />
+                                                  ) : (
+                                                    <X
+                                                      className="text-greens w-6"
+                                                      strokeWidth={3}
+                                                    />
+                                                  )
+                                                ) : index === 1 ? (
+                                                  [
+                                                    0, 1, 2, 3, 4, 5, 6, 9, 12,
+                                                  ].includes(indexs) ? (
+                                                    <Check
+                                                      className="text-greens w-6"
+                                                      strokeWidth={3}
+                                                    />
+                                                  ) : (
+                                                    <X
+                                                      className="text-greens w-6"
+                                                      strokeWidth={3}
+                                                    />
+                                                  )
+                                                ) : index === 2 ? (
+                                                  <Check
+                                                    className="text-greens w-6"
+                                                    strokeWidth={3}
+                                                  />
+                                                ) : (
+                                                  ""
+                                                )}
+                                              </span>
+                                              <span className="text-white">
+                                                {singFeature}
+                                              </span>
+                                            </li>
+                                          )
+                                        )}
+                                      </ul>
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <div className="flex flex-col gap-4">
+                                      <button className="border border-[#b8fd50d7] py-3 rounded-xl">
+                                        Book A Call
+                                      </button>
+                                      <button className="bg-greens py-3 rounded-xl text-blacks font-medium">
+                                        Click to buy
+                                      </button>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -297,137 +230,7 @@ export default function ClearSimplePricing() {
                           </div>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="">
-                      <div className="bg-[#222222] rounded-2xl border border-[#b8fd5047]">
-                        <div className="p-8">
-                          <div>
-                            <div className="space-y-5 border-b border-[#5654548e] pb-6">
-                              <div className="flex items-center gap-3">
-                                <div>
-                                  <h2 className="font-semibold text-2xl xl:text-3xl">
-                                    Basic - Weekly
-                                  </h2>
-                                </div>
-                              </div>
-
-                              <div>
-                                <p className="text-white text-opacity-80 text-xs xl:text-base">
-                                  Perfect if you want to try the subscription
-                                  out or only have a few one-off tasks.
-                                </p>
-                              </div>
-                            </div>
-
-                            <div className="py-6 border-b border-[#5654548e]">
-                              <div>
-                                <div>
-                                  <h2 className="text-4xl font-bold text-greenss">
-                                    $890/m
-                                  </h2>
-                                  <p className="text-white text-opacity-80 text-xs xl:text-base">
-                                    Pause or cancel anytime
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="pt-6">
-                              <div className="flex flex-col gap-8">
-                                <div className="">
-                                  <div>
-                                    <ul className="flex flex-col gap-4 xl:gap-3">
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Fixed Scope of work
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        2 rounds of revisions
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Dedicated project manager
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Daily comms through Slack
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        1x designer
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        2-5 days turn around time
-                                      </li>
-                                      <li className="flex gap-4 text-lg items-center">
-                                        <span>
-                                          <img
-                                            className="w-4"
-                                            src={Star}
-                                            alt=""
-                                          />
-                                        </span>
-                                        Top tier design
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-
-                                <div>
-                                  <div className="flex flex-col gap-4">
-                                    <button className="border border-[#b8fd50d7] py-3 rounded-xl">
-                                      Book A Call
-                                    </button>
-                                    <button className="bg-greens py-3 rounded-xl text-blacks font-medium">
-                                      Click to buy
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
