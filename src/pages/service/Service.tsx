@@ -1,3 +1,9 @@
+import Header from "@/components/Header";
+
 export default function Service() {
-  return <div>Service</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }

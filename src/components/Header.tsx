@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 // motion
 import { slideInFromTop } from "@/utils/motion";
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
 export default function Header() {
   const headerRef: MutableRefObject<HTMLElement | null> =
     useRef<HTMLElement | null>(null);
@@ -77,15 +78,22 @@ export default function Header() {
                     { label: "Contact Us", path: "/contact-us" },
                   ].map((item, index) => (
                     <li key={index}>
-                      <NavLink to={item.path} className="font-normal text-base">
+                      <NavLink
+                        to={item.path}
+                        className={({ isActive }) =>
+                          isActive
+                            ? "font-normal text-base text-greens underline"
+                            : "font-normal text-base"
+                        }
+                      >
                         {item.label}
                       </NavLink>
                     </li>
                   ))}
                   <li>
-                    <button className="bg-greens text-blacks font-medium px-6 py-2 rounded-xl cursor-pointer">
+                    <Button className="bg-greens text-blacks font-medium px-6 py-2 rounded-xl cursor-pointer">
                       Get Quote
-                    </button>
+                    </Button>
                   </li>
                 </ul>
               </div>
