@@ -1,4 +1,5 @@
 import { Mail, Phone } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -97,7 +98,10 @@ export default function Footer() {
                     </div>
 
                     <div className="mt-8 py-6 block text-center border-t border-[#3d3d3d89]">
-                      &copy; Hoque Consulting - All Right Reserved
+                      &copy; 2003 by Trademark. Proudly created with
+                      <NavLink to={"hoqueconsulting.com"}>
+                        hoqueconsulting.com
+                      </NavLink>
                     </div>
                   </div>
                 </div>
