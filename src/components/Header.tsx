@@ -80,7 +80,7 @@ export default function Header() {
                     <li key={index}>
                       <NavLink
                         to={item.path}
-                        className={({ isActive }) =>
+                        className={({ isActive }: { isActive: boolean }) =>
                           isActive
                             ? "font-normal text-base text-greens underline"
                             : "font-normal text-base"
