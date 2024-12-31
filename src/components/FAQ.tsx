@@ -8,14 +8,14 @@ export default function FAQ() {
   const [loading, setLoading] = useState<boolean>(false);
   const { toast } = useToast();
   interface InputData {
-    fullname: string;
+    name: string;
     email: string;
     subject: string;
     message: string;
   }
 
   const [inputData, setInputData] = useState<InputData>({
-    fullname: "",
+    name: "",
     email: "",
     subject: "",
     message: "",
@@ -58,7 +58,7 @@ export default function FAQ() {
     e.preventDefault();
 
     if (
-      !inputData.fullname ||
+      !inputData.name ||
       !inputData.email ||
       !inputData.subject ||
       !inputData.message
@@ -72,20 +72,23 @@ export default function FAQ() {
     setLoading(true);
 
     axios
-      .post(import.meta.env.VITE_HTTP_EMAIL_SEND_URL, inputData)
+      .post("https://hoqueconsulting.com/web/test.php", inputData, {
+        headers: { "Content-Type": "application/json" },
+      })
       .then((resp) => {
-        if (resp.status === 200 && resp.statusText === "OK") {
+        if (resp.data.success) {
           toast({
             title: "Email sent successfully.",
           });
+
           setInputData({
-            fullname: "",
+            name: "",
             email: "",
             subject: "",
             message: "",
           });
         } else {
-          alert("Failed to send email.");
+          toast({ title: "Failed to send email." });
         }
       })
 
@@ -100,7 +103,7 @@ export default function FAQ() {
   return (
     <div className="py-24 bg-white pb-60">
       <div>
-        <div className="flex mx-auto w-11/12 xl:max-w-2xl">
+        <div className="flex mx-auto w-11/12 md:max-w-2xl">
           <div className="w-full">
             <div className="text-center">
               <h2 className="uppercase text-blacks font-semibold text-2xl xl:text-4xl">
@@ -121,9 +124,9 @@ export default function FAQ() {
                   <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <input
                       onChange={inputHandle}
-                      value={inputData.fullname}
+                      value={inputData.name}
                       type="text"
-                      name="fullname"
+                      name="name"
                       placeholder="Your Name"
                       className="w-full border rounded-xl p-4 text-blacks outline-none"
                     />

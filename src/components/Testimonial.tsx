@@ -13,7 +13,7 @@ export default function Testimonial() {
                     testimonial
                   </h3>
                   <h2 className="text-blacks text-2xl lg:text-5xl lg:w-[400px] font-extrabold">
-                    Customer is Our Top Priority
+                    Our Customers Speak for Us
                   </h2>
                   <p className="text-blacks md:w-[550px]">
                     We’re committed to delivering top-notch solutions that drive

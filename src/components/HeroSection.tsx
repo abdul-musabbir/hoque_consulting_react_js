@@ -38,7 +38,7 @@ export default function HeroSection() {
                     initial="hidden"
                     animate="visible"
                   >
-                    <p className="text-white text-opacity-80 text-center font-normal xl:px-56 lg:px-44 xl:text-lg">
+                    <p className="text-white text-opacity-80 text-center font-normal xl:px-56 lg:px-44 xl:text-lg px-80 sm:px-60">
                       Hoque Consulting LLC is a Minnesota based premiere
                       consulting firm that provides cost effective solutions
                       through our hybrid solution. We can get involved in any

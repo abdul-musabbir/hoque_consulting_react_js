@@ -24,7 +24,7 @@ export default function Footer() {
                       solutions.
                     </p>
 
-                    <div className="space-x-4 flex flex-col sm:flex-row items-center justify-center">
+                    <div className="gap-4 flex flex-col sm:flex-row items-center justify-center">
                       <button className="bg-greens px-6 py-2.5 rounded-xl text-blacks font-medium">
                         Book A Meeting
                       </button>
