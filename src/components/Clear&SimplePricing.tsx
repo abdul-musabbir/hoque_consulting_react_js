@@ -4,7 +4,15 @@ import { cn } from "@/lib/utils";
 import { fadeIn } from "@/utils/variants";
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+interface PriceDataProps {
+  pricingTitle: string;
+  pricingSubtitle: string;
+  pricingPrice: string;
+  pricingDescription: string;
+  pricingSubDescription: string;
+  pricingFeatures: string[];
+}
 export default function ClearSimplePricing() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [bookACallDialogIsOpen, setBookACallDialogIsOpen] =
@@ -13,17 +21,13 @@ export default function ClearSimplePricing() {
   const [selectedPriceData, setSelectedPriceData] =
     useState<PriceDataProps | null>(null);
 
-  const [selectedBookACall, setSelectedBookAcall] =
-    useState<PriceDataProps | null>();
-
-  interface PriceDataProps {
-    pricingTitle: string;
-    pricingSubtitle: string;
+  const [selectedBookACall, setSelectedBookAcall] = useState<{
+    pricingName: string;
     pricingPrice: string;
-    pricingDescription: string;
-    pricingSubDescription: string;
-    pricingFeatures: string[];
-  }
+  }>({
+    pricingName: "",
+    pricingPrice: "",
+  });
 
   const pricingData: PriceDataProps[] = [
     {
@@ -102,10 +106,16 @@ export default function ClearSimplePricing() {
     setIsOpen((prev) => !prev);
   };
 
-  const handleBookACall = (bookACall: PriceDataProps) => {
+  const handleBookACall = (bookACall: {
+    pricingName: string;
+    pricingPrice: string;
+  }) => {
     setBookACallDialogIsOpen((prev) => !prev);
     setSelectedBookAcall(bookACall);
   };
+  useEffect(() => {
+    console.log(selectedBookACall);
+  }, [selectedBookACall]);
 
   return (
     <motion.div className="py-24 xl:py-40">
@@ -256,7 +266,12 @@ export default function ClearSimplePricing() {
                                     <div className="flex flex-col gap-4">
                                       <button
                                         onClick={() => {
-                                          handleBookACall(singPriceing);
+                                          handleBookACall({
+                                            pricingName:
+                                              singPriceing?.pricingTitle,
+                                            pricingPrice:
+                                              singPriceing?.pricingPrice,
+                                          });
                                         }}
                                         className="border border-[#b8fd50d7] py-3 rounded-xl"
                                       >

@@ -16,35 +16,31 @@ import { useState } from "react";
 
 interface DialogProps {
   data: {
-    pricingTitle: string;
-    pricingSubtitle: string;
+    pricingName: string;
     pricingPrice: string;
-    pricingDescription: string;
-    pricingSubDescription: string;
-    pricingFeatures: string[];
   } | null; // Allow null value
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export function BookACallDialog({ isOpen, setIsOpen, data }: DialogProps) {
-  if (!data) return null; // If there's no data, return null (or you can show a default message)
   const [loading, setLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState<{
-    pricingType: string;
-    price: string;
+    pricingType: string | undefined;
+    price: string | undefined;
     name: string;
     phone: string;
     email: string;
     call_time: string;
   }>({
-    pricingType: data.pricingTitle,
-    price: data.pricingPrice,
+    pricingType: data?.pricingName,
+    price: data?.pricingPrice,
     name: "",
     phone: "",
     email: "",
     call_time: "",
   });
+  if (!data) return null; // If there's no data, return null (or you can show a default message)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -97,7 +93,7 @@ export function BookACallDialog({ isOpen, setIsOpen, data }: DialogProps) {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-[425px] bg-white border-none text-blacks">
         <DialogHeader>
-          <DialogTitle className="text-2xl">{data?.pricingTitle}</DialogTitle>
+          <DialogTitle className="text-2xl">{data?.pricingName}</DialogTitle>
           <DialogTitle className="text-2xl">{data?.pricingPrice}</DialogTitle>
           <DialogDescription>
             ðŸ“… Book a call with our expert to discuss your project and get a
