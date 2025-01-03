@@ -1,13 +1,15 @@
-import { MutableRefObject, useEffect, useRef } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 // motion
+import { cn } from "@/lib/utils";
 import { slideInFromTop } from "@/utils/motion";
 import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 export default function Header() {
   const headerRef: MutableRefObject<HTMLElement | null> =
     useRef<HTMLElement | null>(null);
-
+  const [showDropDownMenu, setShowDropDownMenu] = useState<boolean>(false);
   // const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {
@@ -37,7 +39,7 @@ export default function Header() {
       animate="visible"
       exit={"hidden"}
       id="header"
-      className="h-20 flex items-center fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-opacity-30"
+      className="h-20 w-full flex items-center fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-opacity-30"
     >
       <div className="mx-auto flex w-4/5 xl:w-[1200px]">
         <div className="flex w-full items-center justify-between">
@@ -55,15 +57,27 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
-            <button id="menu-button" className="text-xl">
-              <i className="fa-solid fa-bars text-2xl"></i>
+            <button
+              onClick={() => setShowDropDownMenu((prev) => !prev)}
+              className="text-xl"
+            >
+              {showDropDownMenu ? (
+                <X className="size-8" />
+              ) : (
+                <Menu className="size-8" />
+              )}
+              {/* <Menu /> */}
             </button>
           </div>
 
           {/* Navigation Menu */}
           <div
-            id="menu-container"
-            className="absolute top-20 left-0 hidden w-full animates lg:static lg:block lg:w-auto"
+            className={cn(
+              "absolute top-20 left-0 w-full animates lg:static lg:block lg:w-auto",
+              {
+                " hidden ": !showDropDownMenu,
+              }
+            )}
             style={{ zIndex: "9999999" }}
           >
             <div className="w-full flex items-center justify-center">

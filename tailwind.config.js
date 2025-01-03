@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ["class"],
+  // darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -53,7 +53,7 @@ export default {
         greens: "#B9FD50",
       },
       animation: {
-        "loop-scroll": "loop-scroll 50s linear infinite",
+        "loop-scroll": "loop-scroll 15s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
@@ -63,7 +63,7 @@ export default {
             transform: "translateX(0)",
           },
           "100%": {
-            transform: "translateX(-100%)",
+            transform: "translateX(-50%)",
           },
         },
         "accordion-down": {

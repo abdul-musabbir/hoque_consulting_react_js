@@ -1,3 +1,5 @@
+import { fadeIn } from "@/utils/variants";
+import { motion } from "framer-motion";
 import AppStoreIos from "../assets/icons/app-store-ios.svg";
 import CareerGrowth from "../assets/icons/career-growth.svg";
 import Flim from "../assets/icons/film.svg";
@@ -11,7 +13,6 @@ interface Service {
   des?: string;
   url?: string;
 }
-
 export default function OurCapabilities() {
   const ourCapabilitiesArr: string[] = [
     "Web design & UI",
@@ -63,7 +64,7 @@ export default function OurCapabilities() {
   ];
 
   return (
-    <div className="pb-24 lg:pt-24">
+    <motion.div className="pb-24 lg:pt-24">
       <div>
         <div className="flex mx-auto w-11/12 flex-col gap-20 md:w-[720px] lg:w-[1000px] xl:w-[1200px]">
           <div className="w-full space-y-8">
@@ -80,24 +81,44 @@ export default function OurCapabilities() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 items-center justify-center">
+            <motion.div className="flex flex-wrap gap-4 items-center justify-center">
               {ourCapabilitiesArr.map((capability, index) => (
-                <div
+                <motion.div
+                  variants={fadeIn("up", 0.2 + 0.1 * index)}
+                  initial="hidden"
+                  whileInView={"visible"}
+                  viewport={{ once: true, amount: 0.25 }}
                   key={index}
                   className="bg-greens text-blacks text-lg px-5 py-1.5 rounded-xl"
                 >
                   {capability}
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            <div className="w-full flex items-center justify-center">
+            <motion.div
+              initial={{
+                opacity: 0,
+              }}
+              whileInView={{
+                opacity: 1,
+                transition: {
+                  duration: 1.2,
+                  delay: 0.2,
+                },
+              }}
+              viewport={{
+                once: true,
+                amount: 0,
+              }}
+              className="w-full flex items-center justify-center"
+            >
               <div>
                 <h4 className="text-white text-opacity-80 font-light text-center">
                   Load More
                 </h4>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           <div className="space-y-20">
@@ -131,9 +152,19 @@ export default function OurCapabilities() {
               </div>
             </div>
 
-            <div className="grid gap-10 px-5 md:grid-cols-2 md:grid-rows-3 md:gap-0 lg:grid-rows-2 lg:grid-cols-3 lg:gap-0 lg:p-0">
+            <motion.div className="grid gap-10 px-5 md:grid-cols-2 md:grid-rows-3 md:gap-0 lg:grid-rows-2 lg:grid-cols-3 lg:gap-0 lg:p-0">
               {arr.map((item, index) => (
-                <div key={index} className="w-full h-full flex sectionssss">
+                <motion.div
+                  variants={fadeIn("right", 0.2 + 0.22 * index)}
+                  initial="hidden"
+                  whileInView={"visible"}
+                  viewport={{
+                    once: true,
+                    amount: 0,
+                  }}
+                  key={index}
+                  className="w-full h-full flex sectionssss"
+                >
                   <div
                     className={cn(
                       "w-full h-full pb-5 border-[#2d2d2d8e] lg:border-b lg:border-l",
@@ -167,12 +198,12 @@ export default function OurCapabilities() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

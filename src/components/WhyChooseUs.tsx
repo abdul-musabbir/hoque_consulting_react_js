@@ -15,7 +15,7 @@ const WhyChooseUs: React.FC = () => {
                   variants={fadeIn("right", 0.3)}
                   initial="hidden"
                   whileInView={"visible"}
-                  viewport={{ once: false, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   className="order-1 md:order-2 flex items-center justify-center"
                 >
                   <div>
@@ -27,7 +27,7 @@ const WhyChooseUs: React.FC = () => {
                   variants={fadeIn("left", 0.3)}
                   initial="hidden"
                   whileInView={"visible"}
-                  viewport={{ once: false, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   className="order-2 md:order-1"
                 >
                   <div className="space-y-5">

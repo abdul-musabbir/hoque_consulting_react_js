@@ -15,7 +15,7 @@ const HowWeWork: React.FC = () => {
                     variants={slideInFromLeft(0.3)}
                     initial="hidden"
                     whileInView={"visible"}
-                    viewport={{ once: false, amount: 0.2 }}
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <h3 className="text-greenss text-md uppercase">
                       how we work
@@ -27,7 +27,7 @@ const HowWeWork: React.FC = () => {
                         variants={fadeIn("right", 0.3)}
                         initial="hidden"
                         whileInView={"visible"}
-                        viewport={{ once: false, amount: 0.2 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         className="pr-20"
                       >
                         <h2 className="text-4xl font-semibold">
@@ -39,7 +39,7 @@ const HowWeWork: React.FC = () => {
                         variants={fadeIn("left", 0.3)}
                         initial="hidden"
                         whileInView={"visible"}
-                        viewport={{ once: false, amount: 0.2 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         className=""
                       >
                         <div className="space-y-4">
@@ -61,14 +61,15 @@ const HowWeWork: React.FC = () => {
                 </div>
               </motion.div>
 
-              <motion.div
-                variants={fadeIn("up", 0.5)}
-                initial="hidden"
-                whileInView={"visible"}
-                viewport={{ once: false, amount: 0.2 }}
-              >
-                <div className="flex flex-col gap-10 md:grid md:grid-cols-2 xl:grid xl:grid-cols-3 xl:gap-20">
-                  <div className="flex flex-col">
+              <motion.div>
+                <motion.div className="flex flex-col gap-10 md:grid md:grid-cols-2 xl:grid xl:grid-cols-3 xl:gap-20">
+                  <motion.div
+                    variants={fadeIn("up", 0.2)}
+                    initial="hidden"
+                    whileInView={"visible"}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="flex flex-col"
+                  >
                     <div className="flex items-center">
                       <div className="bg-greens flex items-center justify-center size-20 rounded-full">
                         <h4 className="text-3xl text-blacks font-semibold">
@@ -92,9 +93,15 @@ const HowWeWork: React.FC = () => {
                         that aligns with your business objectives.
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex flex-col">
+                  <motion.div
+                    variants={fadeIn("up", 0.2 + 0.25)}
+                    initial="hidden"
+                    whileInView={"visible"}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="flex flex-col"
+                  >
                     <div className="flex items-center">
                       <div className="bg-greens flex items-center justify-center size-20 rounded-full">
                         <h4 className="text-3xl text-blacks font-semibold">
@@ -119,9 +126,15 @@ const HowWeWork: React.FC = () => {
                         smooth progress
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex flex-col">
+                  <motion.div
+                    variants={fadeIn("up", 0.2 + 0.5)}
+                    initial="hidden"
+                    whileInView={"visible"}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="flex flex-col"
+                  >
                     <div className="flex items-center">
                       <div className="bg-greens flex items-center justify-center size-20 rounded-full">
                         <h4 className="text-3xl text-blacks font-semibold">
@@ -145,8 +158,8 @@ const HowWeWork: React.FC = () => {
                         seamlessly and meets your expectations.
                       </p>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </motion.div>
             </div>
           </div>

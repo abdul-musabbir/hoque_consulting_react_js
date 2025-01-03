@@ -13,7 +13,7 @@ export default function WhoWeAre() {
                   variants={fadeIn("right", 0.3)}
                   initial="hidden"
                   whileInView={"visible"}
-                  viewport={{ once: false, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   <div>
                     <img className="rounded-xl" src={WhoWePhoto} alt="" />
@@ -24,7 +24,7 @@ export default function WhoWeAre() {
                   variants={fadeIn("left", 0.3)}
                   initial="hidden"
                   whileInView={"visible"}
-                  viewport={{ once: false, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   className="lg:py-10 md:flex md:items-center md:justify-center"
                 >
                   <div className="space-y-5 lg:space-y-10">

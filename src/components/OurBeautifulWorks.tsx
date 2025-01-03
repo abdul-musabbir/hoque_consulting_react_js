@@ -1,4 +1,4 @@
-import { slideInFromTop } from "@/utils/motion";
+import { fadeIn } from "@/utils/variants";
 import { motion } from "framer-motion";
 import BlackFridaySocialMediaBanner from "../assets/portfolio/Black-Friday-Social-media-banner.png";
 import BulkLcdParts from "../assets/portfolio/bulklcdparts.png";
@@ -27,10 +27,10 @@ const OurBeautifulWorks: React.FC = () => {
             <div className="w-full">
               <div className="flex flex-col gap-16">
                 <motion.div
-                  variants={slideInFromTop}
+                  variants={fadeIn("up", 0.2)}
                   initial="hidden"
                   whileInView={"visible"}
-                  viewport={{ once: false, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   <div className="flex flex-col items-center text-center gap-4">
                     <h2 className="text-blacks font-bold text-2xl xl:text-4xl">
@@ -46,24 +46,31 @@ const OurBeautifulWorks: React.FC = () => {
                   </div>
                 </motion.div>
 
-                <div>
+                <motion.div>
                   <div>
                     <div>
                       <div>
-                        <div className="space-y-3 coulmnss w-full">
+                        <motion.div className="space-y-3 coulmnss w-full">
                           {portfolioImageData.map((image, index: number) => (
-                            <img
+                            <motion.img
+                              variants={fadeIn("down", 0.2 + 0.1 * index)}
+                              initial="hidden"
+                              whileInView={"visible"}
+                              viewport={{
+                                once: true,
+                                amount: 0,
+                              }}
                               key={index}
                               className="w-full xl:w-[400px] rounded-2xl"
                               src={image}
                               alt=""
                             />
                           ))}
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>

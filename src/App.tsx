@@ -15,6 +15,7 @@ import { Toaster } from "./components/ui/toaster";
 const App: React.FC = () => {
   return (
     <div>
+      {/* <DialogDemo /> */}
       <Toaster />
       <Header />
       <HeroSection />
