@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ClearSimplePricing from "./components/Clear&SimplePricing";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
@@ -9,8 +9,8 @@ import OurBeautifulWorks from "./components/OurBeautifulWorks";
 import OurCapabilities from "./components/OurCapabilities";
 import Testimonial from "./components/Testimonial";
 import WhoWeAre from "./components/WhoWeAre";
-import WhyChooseUs from "./components/WhyChooseUs";
 import { Toaster } from "./components/ui/toaster";
+const WhyChooseUs = React.lazy(() => import("./components/WhyChooseUs"));
 
 const App: React.FC = () => {
   return (
@@ -21,7 +21,9 @@ const App: React.FC = () => {
       <HeroSection />
       <OurCapabilities />
       <WhoWeAre />
-      <WhyChooseUs />
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <WhyChooseUs />
+      </Suspense>
       <OurBeautifulWorks />
       <HowWeWork />
       <Testimonial />

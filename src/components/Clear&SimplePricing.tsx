@@ -13,21 +13,30 @@ interface PriceDataProps {
   pricingSubDescription: string;
   pricingFeatures: string[];
 }
+
+interface SelectedDataProps {
+  pricingName: string;
+  pricingPrice: string;
+}
+
 export default function ClearSimplePricing() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [bookACallDialogIsOpen, setBookACallDialogIsOpen] =
     useState<boolean>(false);
 
-  const [selectedPriceData, setSelectedPriceData] =
-    useState<PriceDataProps | null>(null);
+  const [selectedPriceData, setSelectedPriceData] = useState<SelectedDataProps>(
+    {
+      pricingName: "",
+      pricingPrice: "",
+    }
+  );
 
-  const [selectedBookACall, setSelectedBookAcall] = useState<{
-    pricingName: string;
-    pricingPrice: string;
-  }>({
-    pricingName: "",
-    pricingPrice: "",
-  });
+  const [selectedBookACall, setSelectedBookAcall] = useState<SelectedDataProps>(
+    {
+      pricingName: "",
+      pricingPrice: "",
+    }
+  );
 
   const pricingData: PriceDataProps[] = [
     {
@@ -101,15 +110,16 @@ export default function ClearSimplePricing() {
     },
   ];
 
-  const handleBuyNowClick = (singPriceing: PriceDataProps) => {
-    setSelectedPriceData(singPriceing);
+  const handleBuyNowClick = (singPriceing: SelectedDataProps) => {
+    setSelectedPriceData((prev) => ({
+      ...prev,
+      pricingName: singPriceing.pricingName,
+      pricingPrice: singPriceing.pricingPrice,
+    }));
     setIsOpen((prev) => !prev);
   };
 
-  const handleBookACall = (bookACall: {
-    pricingName: string;
-    pricingPrice: string;
-  }) => {
+  const handleBookACall = (bookACall: SelectedDataProps) => {
     setBookACallDialogIsOpen((prev) => !prev);
     setSelectedBookAcall(bookACall);
   };
@@ -279,7 +289,12 @@ export default function ClearSimplePricing() {
                                       </button>
                                       <button
                                         onClick={() =>
-                                          handleBuyNowClick(singPriceing)
+                                          handleBuyNowClick({
+                                            pricingName:
+                                              singPriceing?.pricingTitle,
+                                            pricingPrice:
+                                              singPriceing?.pricingPrice,
+                                          })
                                         }
                                         className="bg-greens py-3 rounded-xl text-blacks font-medium"
                                       >

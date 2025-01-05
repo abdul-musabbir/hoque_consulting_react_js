@@ -14,28 +14,25 @@ import { useState } from "react";
 
 interface DialogProps {
   data: {
-    pricingTitle: string;
-    pricingSubtitle: string;
+    pricingName: string;
     pricingPrice: string;
-    pricingDescription: string;
-    pricingSubDescription: string;
-    pricingFeatures: string[];
   } | null; // Allow null value
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface FormDataProps {
+  pricingType: string;
+  price: string;
+  name: string;
+  phone: string;
+  email: string;
+  address: string;
+  projectBrief: string;
+}
 export function DialogDemo({ isOpen, setIsOpen, data }: DialogProps) {
-  if (!data) return null; // If there's no data, return null (or you can show a default message)
-  const [formData, setFormData] = useState<{
-    pricingType: string;
-    price: string;
-    name: string;
-    phone: string;
-    email: string;
-    address: string;
-    projectBrief: string;
-  }>({
+  // If there's no data, return null (or you can show a default message)
+  const [formData, setFormData] = useState<FormDataProps>({
     pricingType: "",
     price: "",
     name: "",
@@ -45,11 +42,13 @@ export function DialogDemo({ isOpen, setIsOpen, data }: DialogProps) {
     projectBrief: "",
   });
 
+  if (!data) return null;
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      pricingType: data.pricingTitle || "",
+      pricingType: data.pricingName || "",
       price: data.pricingPrice || "",
       [name]: value,
     }));
@@ -65,7 +64,7 @@ export function DialogDemo({ isOpen, setIsOpen, data }: DialogProps) {
     ) {
       setFormData((prev) => ({
         ...prev,
-        pricingType: data.pricingTitle,
+        pricingType: data.pricingName,
         price: data.pricingPrice,
       }));
 
@@ -98,7 +97,7 @@ export function DialogDemo({ isOpen, setIsOpen, data }: DialogProps) {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-[425px] bg-white border-none text-blacks">
         <DialogHeader>
-          <DialogTitle className="text-2xl">{data?.pricingTitle}</DialogTitle>
+          <DialogTitle className="text-2xl">{data?.pricingName}</DialogTitle>
           <DialogTitle className="text-2xl">{data?.pricingPrice}</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
